@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Dishes>
+    <Dish>
+      <List>
+        <Product>
+          <Protein>11.9</Protein>
+          <Fats>7.2</Fats>
+          <Carbohydrates>69.3</Carbohydrates>
+          <KiloCalories>366</KiloCalories>
+          <Weight>100</Weight>
+          <Name>Овсянные хлопья</Name>
+        </Product>
+        <Product>
+          <Protein>0.15</Protein>
+          <Fats>24.75</Fats>
+          <Carbohydrates>0.24000001</Carbohydrates>
+          <KiloCalories>224.4</KiloCalories>
+          <Weight>30</Weight>
+          <Name>Масло сливочное 82.5%</Name>
+        </Product>
+        <Product>
+          <Protein>6.4</Protein>
+          <Fats>7.2</Fats>
+          <Carbohydrates>9.6</Carbohydrates>
+          <KiloCalories>128</KiloCalories>
+          <Weight>200</Weight>
+          <Name>Молоко</Name>
+        </Product>
+      </List>
+      <Name>Овсянные хлопья</Name>
+    </Dish>
+    <Dish>
+      <List>
+        <Product>
+          <Protein>0.32</Protein>
+          <Fats>0.32</Fats>
+          <Carbohydrates>7.84</Carbohydrates>
+          <KiloCalories>37.6</KiloCalories>
+          <Weight>80</Weight>
+          <Name>Яблоко</Name>
+        </Product>
+        <Product>
+          <Protein>24</Protein>
+          <Fats>21</Fats>
+          <Carbohydrates>0</Carbohydrates>
+          <KiloCalories>285</KiloCalories>
+          <Weight>150</Weight>
+          <Name>Курица</Name>
+        </Product>
+        <Product>
+          <Protein>5.4</Protein>
+          <Fats>1.08</Fats>
+          <Carbohydrates>48.8700027</Carbohydrates>
+          <KiloCalories>216</KiloCalories>
+          <Weight>270</Weight>
+          <Name>Картофель</Name>
+        </Product>
+      </List>
+      <Name>Курица заправленная яблоками с картошкой</Name>
+    </Dish>
+  </Dishes>
+</Root>

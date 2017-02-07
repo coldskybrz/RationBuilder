@@ -1,0 +1,155 @@
+﻿<Window x:Class="RationBuilder.Views.RationWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        Title="Рацион" Height="600" Width="600">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName ="Closed">
+            <i:InvokeCommandAction Command ="{Binding Closed}"/>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
+    <Grid>
+        <Grid.Resources>
+            <Style TargetType="TextBlock">
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text=" Время: " Grid.Column="0"/>
+            <TextBlock Text="{Binding Time}" Grid.Column="1"/>
+            <TextBlock Text=" День недели: " Grid.Column="2"/>
+            <TextBlock Text="{Binding DayOfWeek}" Grid.Column="3"/>
+        </Grid>
+        <Button Command="{Binding EditUserData}" Content="Изменить данные профиля" Grid.Row="1"/>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Дневная потребность" ToolTip="Профиль должен быть заполнен полностью." HorizontalAlignment="Center" Grid.Row="0"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text=" Ккал: " Grid.Column="0"/>
+                <TextBlock Text="{Binding DailyRequirement.KiloCalories}" Grid.Column="1"/>
+                <TextBlock Text=" Белки: " Grid.Column="2"/>
+                <TextBlock Text="{Binding DailyRequirement.Protein}" Grid.Column="3"/>
+                <TextBlock Text=" Углеводы: " Grid.Column="4"/>
+                <TextBlock Text="{Binding DailyRequirement.Carbohydrates}" Grid.Column="5"/>
+                <TextBlock Text=" Жиры: " Grid.Column="6"/>
+                <TextBlock Text="{Binding DailyRequirement.Fats}" Grid.Column="7"/>
+            </Grid>
+            <TextBlock Text="Осталось употребить" HorizontalAlignment="Center" Grid.Row="2"/>
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text=" Ккал: " Grid.Column="0"/>
+                <TextBlock Text="{Binding DailyPlanLeft.KiloCalories}" Grid.Column="1"/>
+                <TextBlock Text=" Белки: " Grid.Column="2"/>
+                <TextBlock Text="{Binding DailyPlanLeft.Protein}" Grid.Column="3"/>
+                <TextBlock Text=" Углеводы: " Grid.Column="4"/>
+                <TextBlock Text="{Binding DailyPlanLeft.Carbohydrates}" Grid.Column="5"/>
+                <TextBlock Text=" Жиры: " Grid.Column="6"/>
+                <TextBlock Text="{Binding DailyPlanLeft.Fats}" Grid.Column="7"/>
+            </Grid>
+            <TextBlock Text="Запланировано" HorizontalAlignment="Center" Grid.Row="4"/>
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text=" Ккал: " Grid.Column="0"/>
+                <TextBlock Text="{Binding DailyPlan.KiloCalories}" Grid.Column="1"/>
+                <TextBlock Text=" Белки: " Grid.Column="2"/>
+                <TextBlock Text="{Binding DailyPlan.Protein}" Grid.Column="3"/>
+                <TextBlock Text=" Углеводы: " Grid.Column="4"/>
+                <TextBlock Text="{Binding DailyPlan.Carbohydrates}" Grid.Column="5"/>
+                <TextBlock Text=" Жиры: " Grid.Column="6"/>
+                <TextBlock Text="{Binding DailyPlan.Fats}" Grid.Column="7"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3">
+            
+        </Grid>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ListView ItemsSource="{Binding Schedules}" SelectedItem="{Binding SelectedSchedule}" Grid.Column="0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Время" DisplayMemberBinding="{Binding Time}"/>
+                        <GridViewColumn Header="Вес" DisplayMemberBinding="{Binding Weight}"/>
+                        <GridViewColumn Header="Белки" DisplayMemberBinding="{Binding Protein}"/>
+                        <GridViewColumn Header="Углеводы" DisplayMemberBinding="{Binding Carbohydrates}"/>
+                        <GridViewColumn Header="Жиры" DisplayMemberBinding="{Binding Fats}"/>
+                        <GridViewColumn Header="Ккал" DisplayMemberBinding="{Binding KiloCalories}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListView ItemsSource="{Binding Food}" SelectionMode="Extended" Grid.Column="1">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Пища" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Вес" DisplayMemberBinding="{Binding Weight}"/>
+                        <GridViewColumn Header="Белки" DisplayMemberBinding="{Binding Protein}"/>
+                        <GridViewColumn Header="Углеводы" DisplayMemberBinding="{Binding Carbohydrates}"/>
+                        <GridViewColumn Header="Жиры" DisplayMemberBinding="{Binding Fats}"/>
+                        <GridViewColumn Header="Ккал" DisplayMemberBinding="{Binding KiloCalories}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Grid>
+        <Grid Grid.Row="5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Button Command="{Binding EditSchedules}" Content="Редактировать расписание" Grid.Row="0"/>
+            <Button Command="{Binding EditDishes}" Content="Редактировать список блюд" Grid.Row="1"/>
+            <Button Command="{Binding EditProducts}" Content="Редактировать список продуктов" Grid.Row="2"/>
+        </Grid>
+    </Grid>
+</Window>

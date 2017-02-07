@@ -1,0 +1,49 @@
+﻿<Window x:Class="RationBuilder.Views.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Регистрация" Height="325" Width="350" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions> 
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="*Логин: " ToolTip="Логин должен быть от 4 до 20 символов и включать только латинские буквы и цифры [a-z, 0-9]" Grid.Row="0" Grid.Column="0"/>
+            <TextBlock Text="*Пароль: " ToolTip="Пароль должен быть от 4 до 20 символов и включать только латинские буквы и цифры [a-z, 0-9]" Grid.Row="1" Grid.Column="0"/>
+            <TextBlock Text="*Пароль еще раз: " ToolTip="Пароль должен быть от 4 до 20 символов и включать только латинские буквы и цифры [a-z, 0-9]" Grid.Row="2" Grid.Column="0"/>
+            <TextBlock Text="Имя: " ToolTip="Имя должно быть от 1 до 20 символов и включать латинские или русские буквы [а-я]" Grid.Row="3" Grid.Column="0"/>
+            <TextBlock Text="Рост " Grid.Row="4" Grid.Column="0"/>
+            <TextBlock Text="Вес " Grid.Row="5" Grid.Column="0"/>
+            <TextBlock Text="Физическая активность " Grid.Row="6" Grid.Column="0"/>
+            <TextBlock Text="Цель " Grid.Row="7" Grid.Column="0"/>
+            <TextBox Text="{Binding Login}" MaxLength="20" Grid.Row="0" Grid.Column="1"/>
+            <PasswordBox MaxLength="20" Grid.Row="1" Grid.Column="1"/>
+            <PasswordBox MaxLength="20" Grid.Row="2" Grid.Column="1"/>
+            <Label Content="{Binding Error}"  Grid.Row="3" Grid.Column="1"/>
+            <ComboBox Grid.Row="4" Grid.Column="1"/>
+            <ComboBox Grid.Row="5" Grid.Column="1"/>
+            <ComboBox Grid.Row="6" Grid.Column="1"/>
+            <ComboBox Grid.Row="7" Grid.Column="1"/>
+        </Grid>
+        <TextBlock Text="* - Обязательно к заполнению" Grid.Row="1"/>
+        <StackPanel Grid.Row="2">
+            <Button Content="Зарегистрироваться" Margin="2"/>
+            <Button Content="Отмена" Margin="2"/>
+        </StackPanel>
+    </Grid>
+</Window>

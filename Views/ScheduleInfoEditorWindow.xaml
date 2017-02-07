@@ -1,0 +1,89 @@
+﻿<Window x:Class="RationBuilder.Views.ScheduleInfoEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Информация о расписании" Height="400" Width="600">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ListView ItemsSource="{Binding Dishes}" SelectedItem="{Binding SelectedDish}" Grid.Row="0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Блюдо" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Вес" DisplayMemberBinding="{Binding Weight}"/>
+                        <GridViewColumn Header="Белки" DisplayMemberBinding="{Binding Protein}"/>
+                        <GridViewColumn Header="Углеводы" DisplayMemberBinding="{Binding Carbohydrates}"/>
+                        <GridViewColumn Header="Жиры" DisplayMemberBinding="{Binding Fats}"/>
+                        <GridViewColumn Header="Ккал" DisplayMemberBinding="{Binding KiloCalories}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button Content="Добавить блюдо" Command="{Binding AddDish}" Grid.Row="1"/>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="Минуты: " Grid.Column="0" Grid.Row="0"/>
+                <ComboBox ItemsSource="{Binding Minutes}" SelectedItem="{Binding SelectedMinute}" SelectedIndex="0" Grid.Column="1" Grid.Row="0"/>
+                <TextBlock Text="Часы: " Grid.Column="0" Grid.Row="1"/>
+                <ComboBox ItemsSource="{Binding Hourse}" SelectedItem="{Binding SelectedHour}" SelectedIndex="0" Grid.Column="1" Grid.Row="1"/>
+                <TextBlock Text="День недели: " Grid.Column="0" Grid.Row="2"/>
+                <ComboBox ItemsSource="{Binding DaysOfWeek}" SelectedItem="{Binding SelectedDayOfWeek}" SelectedIndex="0" Grid.Column="1" Grid.Row="2"/>
+            </Grid>
+            <ListView ItemsSource="{Binding Food}" SelectedItem="{Binding SelectedFood}" Grid.Row="1">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Еда" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Вес" DisplayMemberBinding="{Binding Weight}"/>
+                        <GridViewColumn Header="Белки" DisplayMemberBinding="{Binding Protein}"/>
+                        <GridViewColumn Header="Углеводы" DisplayMemberBinding="{Binding Carbohydrates}"/>
+                        <GridViewColumn Header="Жиры" DisplayMemberBinding="{Binding Fats}"/>
+                        <GridViewColumn Header="Ккал" DisplayMemberBinding="{Binding KiloCalories}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button Content="Удалить еду" Command="{Binding Delete}" Grid.Row="2"/>
+            <Button Content="Готово" Command="{Binding Ready}" Grid.Row="3"/>
+        </Grid>
+        <Grid Grid.Column="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <ListView ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}" Grid.Row="0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Продукт" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Вес" DisplayMemberBinding="{Binding Weight}"/>
+                        <GridViewColumn Header="Белки" DisplayMemberBinding="{Binding Protein}"/>
+                        <GridViewColumn Header="Углеводы" DisplayMemberBinding="{Binding Carbohydrates}"/>
+                        <GridViewColumn Header="Жиры" DisplayMemberBinding="{Binding Fats}"/>
+                        <GridViewColumn Header="Ккал" DisplayMemberBinding="{Binding KiloCalories}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button Content="Добавить продукт" Command="{Binding AddProduct}" Grid.Row="1"/>
+        </Grid>
+    </Grid>
+</Window>

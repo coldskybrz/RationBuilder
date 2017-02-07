@@ -1,0 +1,48 @@
+﻿<Window x:Class="RationBuilder.Views.DishesManagerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    Title="Редактор блюд" Height="500" Width="450">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Отсеивать по названию: " Grid.Column="0"/>
+            <TextBox Text="{Binding SearchText}" MinWidth="100" Grid.Column="1"/>
+            <Button Command="{Binding Search}" Content="Искать" Grid.Column="2"/>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ListBox ItemsSource="{Binding Dishes}" SelectedItem="SelectedDish" Grid.Row="0"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Products}" TextWrapping="Wrap" Grid.Column="0"/>
+                <TextBlock Text="{Binding DishInfo}" TextWrapping="Wrap" Grid.Column="1"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Content="Добавить" Command="{Binding AddProduct}" Grid.Column="0"/>
+            <Button Content="Редактировать" Command="{Binding EditProduct}" Grid.Column="1"/>
+            <Button Content="Удалить" Command="{Binding DeleteProduct}" Grid.Column="2"/>
+        </Grid>
+    </Grid>
+</Window>

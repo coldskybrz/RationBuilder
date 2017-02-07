@@ -1,0 +1,15 @@
+﻿<Window x:Class="RationBuilder.Views.WeightEnterWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Вес" Height="100" Width="300" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Введите вес еды в граммах:" HorizontalAlignment="Center" Grid.Row="0"/>
+        <TextBox Text="{Binding Weight}" MaxLength="4" Grid.Row="1"/>
+        <Button Command="{Binding Add}" Content="Добавить" Grid.Row="2"/>
+    </Grid>
+</Window>

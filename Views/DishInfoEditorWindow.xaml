@@ -1,0 +1,91 @@
+﻿<Window x:Class="RationBuilder.Views.DishInfoEditorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Информация о блюде" Height="425" Width="550">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Колличество нутриентов в блюде" HorizontalAlignment="Center" Grid.Row="0"/>
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Text=" Ккал: " Grid.Column="0"/>
+                <TextBlock Text="{Binding Dish.KiloCalories}" Grid.Column="1"/>
+                <TextBlock Text=" Белки: " Grid.Column="2"/>
+                <TextBlock Text="{Binding Dish.Protein}" Grid.Column="3"/>
+                <TextBlock Text=" Углеводы: " Grid.Column="4"/>
+                <TextBlock Text="{Binding Dish.Carbohydrates}" Grid.Column="5"/>
+                <TextBlock Text=" Жиры: " Grid.Column="6"/>
+                <TextBlock Text="{Binding Dish.Fats}" Grid.Column="7"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Продукты" HorizontalAlignment="Center" Grid.Row="0"/>
+                <ListView ItemsSource="{Binding Products}" SelectedItem="{Binding SelectedProduct}" Grid.Row="1">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Продукт" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Вес" DisplayMemberBinding="{Binding Weight}"/>
+                            <GridViewColumn Header="Белки" DisplayMemberBinding="{Binding Protein}"/>
+                            <GridViewColumn Header="Углеводы" DisplayMemberBinding="{Binding Carbohydrates}"/>
+                            <GridViewColumn Header="Жиры" DisplayMemberBinding="{Binding Fats}"/>
+                            <GridViewColumn Header="Ккал" DisplayMemberBinding="{Binding KiloCalories}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Command="{Binding Add}" Content="Добавить продукт в блюдо" ToolTip="При добавлении будет создан запрос веса." Grid.Row="2"/>
+                <TextBlock Text="Блюдо" HorizontalAlignment="Center" Grid.Row="3"/>
+                <ListView ItemsSource="{Binding DishProducts}" SelectedItem="{Binding SelectedDishProduct}" Grid.Row="4">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Продукт" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Header="Вес" DisplayMemberBinding="{Binding Weight}"/>
+                            <GridViewColumn Header="Белки" DisplayMemberBinding="{Binding Protein}"/>
+                            <GridViewColumn Header="Углеводы" DisplayMemberBinding="{Binding Carbohydrates}"/>
+                            <GridViewColumn Header="Жиры" DisplayMemberBinding="{Binding Fats}"/>
+                            <GridViewColumn Header="Ккал" DisplayMemberBinding="{Binding KiloCalories}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Command="{Binding Delete}" Content="Удалить продукт из блюда" Grid.Row="5"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Название:" HorizontalAlignment="Center" Grid.Row="0"/>
+            <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"/>
+            <TextBlock Text="*Название может быть только в единственном экземпляре." HorizontalAlignment="Center" Grid.Row="2"/>
+            <Button Command="{Binding Ready}" Content="Готово" Grid.Row="3"/>
+        </Grid>
+    </Grid>
+</Window>

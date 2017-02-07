@@ -1,0 +1,31 @@
+﻿<Window x:Class="RationBuilder.Views.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Вход" Height="175" Width="300" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock Text="" Grid.Row="0"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="Логин:" Grid.Row="0" Grid.Column="0"/>
+            <TextBlock Text="Пароль:" Grid.Row="1" Grid.Column="0"/>
+            <TextBox Grid.Row="0" Grid.Column="1"/>
+            <PasswordBox Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+        <StackPanel Grid.Row="2" VerticalAlignment="Center">
+            <Button Content="Войти" Margin="2"/>
+            <Button Content="Регистрация" Margin="2"/>
+        </StackPanel>
+    </Grid>
+</Window>

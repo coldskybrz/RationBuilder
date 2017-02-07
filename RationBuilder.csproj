@@ -1,0 +1,258 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CF16B9FB-5EA9-4200-8450-CE0AD17CE173}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RationBuilder</RootNamespace>
+    <AssemblyName>RationBuilder</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <SGenUseProxyTypes>false</SGenUseProxyTypes>
+    <SGenPlatformTarget>$(Platform)</SGenPlatformTarget>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\Microsoft.Expression.Interactions.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\packages\Ninject.3.2.2.0\lib\net45-full\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="L10n\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Authorization.cs" />
+    <Compile Include="Models\CalculatorNutrients.cs" />
+    <Compile Include="Models\CanExecute.cs" />
+    <Compile Include="Models\DailyActivity.cs" />
+    <Compile Include="Models\DataManager.cs" />
+    <Compile Include="Models\DateCharacteristic.cs" />
+    <Compile Include="Models\DependentsUpon.cs" />
+    <Compile Include="Models\Dish.cs" />
+    <Compile Include="Models\Dishes.cs" />
+    <Compile Include="Models\Gender.cs" />
+    <Compile Include="Models\HumanCharacteristic.cs" />
+    <Compile Include="Models\IApplication.cs" />
+    <Compile Include="Models\IAuthorization.cs" />
+    <Compile Include="Models\IDataManager.cs" />
+    <Compile Include="Models\IDish.cs" />
+    <Compile Include="Models\IFood.cs" />
+    <Compile Include="Models\IRegistration.cs" />
+    <Compile Include="Models\IUser.cs" />
+    <Compile Include="Models\IWindowController.cs" />
+    <Compile Include="Models\IWindowFactory.cs" />
+    <Compile Include="Models\LocalizedDescriptionAttribute.cs" />
+    <Compile Include="Models\Food.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\PurposeActivity.cs" />
+    <Compile Include="Models\Registration.cs" />
+    <Compile Include="Models\RelayCommand.cs" />
+    <Compile Include="Models\Schedule.cs" />
+    <Compile Include="Models\Schedules.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\Users.cs" />
+    <Compile Include="Models\UserValidation.cs" />
+    <Compile Include="Models\WindowFactory.cs" />
+    <Compile Include="Models\WindowController.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\DishesManagerViewModel.cs" />
+    <Compile Include="ViewModels\DishInfoEditorViewModel.cs" />
+    <Compile Include="ViewModels\DishViewModel.cs" />
+    <Compile Include="ViewModels\FoodViewModel.cs" />
+    <Compile Include="ViewModels\HumanCharacteristicViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\ProductInfoEditorViewModel.cs" />
+    <Compile Include="ViewModels\ProductsManagerViewModel.cs" />
+    <Compile Include="ViewModels\RationViewModel.cs" />
+    <Compile Include="ViewModels\RegistrationViewModel.cs" />
+    <Compile Include="ViewModels\ScheduleInfoEditorViewModel.cs" />
+    <Compile Include="ViewModels\ScheduleManagerViewModel.cs" />
+    <Compile Include="ViewModels\ScheduleViewModel.cs" />
+    <Compile Include="ViewModels\UserEditViewModel.cs" />
+    <Compile Include="ViewModels\WeightEnterViewModel.cs" />
+    <Compile Include="ViewModels\WindowCreatableViewModel.cs" />
+    <Compile Include="ViewModels\WindowControllableViewModel.cs" />
+    <Compile Include="ViewModels\WindowCreateControlViewModel.cs" />
+    <Compile Include="Views\DishesManagerWindow.xaml.cs">
+      <DependentUpon>DishesManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DishInfoEditorWindow.xaml.cs">
+      <DependentUpon>DishInfoEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductInfoEditorWindow.xaml.cs">
+      <DependentUpon>ProductInfoEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductsManagerWindow.xaml.cs">
+      <DependentUpon>ProductsManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RationWindow.xaml.cs">
+      <DependentUpon>RationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RegisterView.xaml.cs">
+      <DependentUpon>RegisterWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScheduleInfoEditorWindow.xaml.cs">
+      <DependentUpon>ScheduleInfoEditorWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ScheduleManagerWindow.xaml.cs">
+      <DependentUpon>ScheduleManagerWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserEditWindow.xaml.cs">
+      <DependentUpon>UserEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\WeightEnterWindow.xaml.cs">
+      <DependentUpon>WeightEnterWindow.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="L10n\Resource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Page Include="Views\DishesManagerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DishInfoEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductInfoEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductsManagerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RationWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RegisterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ScheduleInfoEditorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ScheduleManagerWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WeightEnterWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <Target Name="GenerateSerializationAssemblies" Condition="'$(_SGenGenerateSerializationAssembliesConfig)' == 'On' or ('@(WebReferenceUrl)'!='' and '$(_SGenGenerateSerializationAssembliesConfig)' == 'Auto')" DependsOnTargets="AssignTargetPaths;Compile;ResolveKeySource" Inputs="$(MSBuildAllProjects);@(IntermediateAssembly)" Outputs="$(IntermediateOutputPath)$(_SGenDllName)">
+    <SGen BuildAssemblyName="$(TargetFileName)" BuildAssemblyPath="$(IntermediateOutputPath)" References="@(ReferencePath)" ShouldGenerateSerializer="$(SGenShouldGenerateSerializer)" UseProxyTypes="$(SGenUseProxyTypes)" KeyContainer="$(KeyContainerName)" KeyFile="$(KeyOriginatorFile)" DelaySign="$(DelaySign)" ToolPath="$(SGenToolPath)" SdkToolsPath="$(TargetFrameworkSDKToolsDirectory)" EnvironmentVariables="$(SGenEnvironment)" SerializationAssembly="$(IntermediateOutputPath)$(_SGenDllName)" Platform="$(SGenPlatformTarget)" Types="$(SGenSerializationTypes)">
+      <Output TaskParameter="SerializationAssembly" ItemName="SerializationAssembly" />
+    </SGen>
+  </Target>
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
